@@ -2,6 +2,8 @@
 
 A swipe component for React Native that works on iOS and Android.
 
+![](http://i.imgur.com/P11FPpR.gif)
+
 #### Table of Contents
 
 * [Why create this?](#why-create-this)
