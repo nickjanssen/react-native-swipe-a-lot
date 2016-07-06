@@ -15,7 +15,7 @@ import reducer from './reducer'
 
 import { createStore } from 'redux'
 
-import { EventEmitter } from 'events'
+import EventEmitter from 'tiny-emitter'
 
 export default class SwipeALot extends Component {
   constructor(props) {
@@ -62,7 +62,7 @@ export default class SwipeALot extends Component {
       }
     }
 
-    this.emitter.addListener('swipeToPage', this.swipeToPageListener)
+    this.emitter.on('swipeToPage', this.swipeToPageListener)
 
     if (this.getAutoplaySettings().enabled) {
       this.startAutoplay()
@@ -70,7 +70,7 @@ export default class SwipeALot extends Component {
   }
 
   componentWillUnmount() {
-    this.emitter.removeListener('swipeToPage', this.swipeToPageListener)
+    this.emitter.off('swipeToPage', this.swipeToPageListener)
   }
 
   startAutoplay() {
