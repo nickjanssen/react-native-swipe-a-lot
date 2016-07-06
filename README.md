@@ -9,10 +9,11 @@ A swipe component for React Native that works on iOS and Android.
 * [Why create this?](#why-create-this)
 * [Features](#features)
 * [Getting started](#getting-started)
+* [Running the demo](#running-the-demo)
 * [Configuration](#configuration)
 * [API](#api)
-* [How to use](#how-to-use)
-* [Methods](#methods)
+  * [How to use](#how-to-use)
+  * [Methods](#methods)
 * [License](#license)
 
 ## Why create this?
@@ -62,6 +63,12 @@ class Root extends React.Component {
   }
 }
 ```
+
+## Running the demo
+
+First run `npm install`
+
+Then simply run `react-native run-android` or `react-native run-ios`
 
 ## Configuration
 
