@@ -42,7 +42,7 @@ npm i react-native-swipe-a-lot --save-dev
 Import the SwipeALot component wherever you'd like to use it.
 
 ```
-import SwipeALot from '../src/index'
+import SwipeALot from 'react-native-swipe-a-lot'
 ```
 
 In your render method, simply use it as a wrapper around Views.
