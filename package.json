@@ -1,12 +1,15 @@
 {
   "name": "react-native-swipe-a-lot",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A swipe component for React Native that works on iOS and Android.",
   "main": "src/index.js",
   "directories": {
     "example": "example"
   },
-  "dependencies": {},
+  "dependencies": {
+    "events": "^1.1.1",
+    "tiny-emitter": "^1.1.0"
+  },
   "devDependencies": {
     "ava": "^0.15.2",
     "babel-cli": "^6.9.0",
