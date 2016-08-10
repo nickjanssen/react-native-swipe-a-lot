@@ -104,6 +104,7 @@ export default class SwipeALot extends Component {
   static get propTypes() {
     return {
       wrapperStyle: PropTypes.object,
+      circleWrapperStyle: PropTypes.object,
       circleDefaultStyle: PropTypes.object,
       circleActiveStyle: PropTypes.object,
       children: PropTypes.any,
@@ -182,6 +183,7 @@ export default class SwipeALot extends Component {
           }
         })()}
         <Circles store={this.store} emitter={this.emitter}
+          circleWrapperStyle={this.props.circleWrapperStyle}
           circleDefaultStyle={this.props.circleDefaultStyle}
           circleActiveStyle={this.props.circleActiveStyle}>
           {this.props.children}
