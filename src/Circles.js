@@ -29,6 +29,7 @@ class Circles extends Component {
     return {
       store: PropTypes.object,
       emitter: PropTypes.object,
+      circleWrapperStyle: PropTypes.object,
       circleDefaultStyle: PropTypes.object,
       circleActiveStyle: PropTypes.object,
       children: PropTypes.any
@@ -50,7 +51,7 @@ class Circles extends Component {
     const selectedPage = this.props.store.getState().page
 
     return (
-      <View style={styles.circleWrapper} pointerEvents='box-none'>
+      <View style={[styles.circleWrapper, this.props.circleWrapperStyle]} pointerEvents='box-none'>
         {React.Children.map(this.props.children, (c, i) => {
           return (
             <TouchableWithoutFeedback key={`circle${i}`} onPress={() => {

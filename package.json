@@ -1,6 +1,6 @@
 {
   "name": "react-native-swipe-a-lot",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "A swipe component for React Native that works on iOS and Android.",
   "main": "src/index.js",
   "directories": {
