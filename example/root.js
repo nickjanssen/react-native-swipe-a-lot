@@ -34,8 +34,10 @@ export default class Root extends React.Component {
       <View style={{flex:1}}>
         <SwipeALot autoplay={{
             enabled: true,
-            disableOnSwipe: true
-          }}>
+            disableOnSwipe: true,
+          }}
+          onSetActivePage={(index) => { /* console.log('active', index); */ }}
+        >
           <View style={styles.wrapper}>
             <Image
               style={styles.image}
