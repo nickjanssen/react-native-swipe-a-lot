@@ -84,9 +84,18 @@ You can pass these props to the component:
 }
 ```
 
+`onSetActivePage` is a function that returns current index of the page when user swipes or clicks on a circle
+```
+<SwipeALot
+  onSetActivePage={(index) => { console.log('Current Page is: ', index); }}
+>
+</SwipeALot>
+```
+
 `wrapperStyle` defines how the container that contains the swiping views looks. By default no styling is applied.
 
 `circleDefaultStyle` defines how the inactive circles on your swiper component look. You can pass an object here with style properties that you wish to override.
+
 
 Default style:
 ```

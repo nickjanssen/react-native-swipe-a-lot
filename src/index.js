@@ -38,6 +38,12 @@ export default class SwipeALot extends Component {
     }, this.props.autoplay)
   }
 
+  onSetActivePage(page) {
+    if (this.props.onSetActivePage) {
+      this.props.onSetActivePage(page)
+    }
+  }
+
   componentDidMount() {
 
     this.store.dispatch({
@@ -50,6 +56,8 @@ export default class SwipeALot extends Component {
         type: 'SET_ACTIVE_PAGE',
         page
       })
+
+      this.onSetActivePage(page)
 
       if (Platform.OS === 'android') {
         this.swiper.setPage(page)
@@ -109,7 +117,8 @@ export default class SwipeALot extends Component {
       circleActiveStyle: PropTypes.object,
       children: PropTypes.any,
       emitter: PropTypes.object,
-      autoplay: PropTypes.object
+      autoplay: PropTypes.object,
+      onSetActivePage: PropTypes.func,
     }
   }
 
@@ -137,6 +146,7 @@ export default class SwipeALot extends Component {
                     type: 'SET_ACTIVE_PAGE',
                     page: page
                   })
+                  this.onSetActivePage(page)
                   if (this.getAutoplaySettings().disableOnSwipe &&
                     this.autoplayPageCurrentlyBeingTransitionedTo !== page) {
                     this.stopAutoplay()
@@ -167,6 +177,7 @@ export default class SwipeALot extends Component {
                     type: 'SET_ACTIVE_PAGE',
                     page: e.nativeEvent.position
                   })
+                  this.onSetActivePage(e.nativeEvent.position)
                   if (this.getAutoplaySettings().disableOnSwipe &&
                     this.autoplayPageCurrentlyBeingTransitionedTo !== e) {
                     this.stopAutoplay()
