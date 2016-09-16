@@ -1,13 +1,13 @@
-
-
-import React, { Component, PropTypes } from 'react'
-import ReactNative from 'react-native'
-const {
+import React, {
+  Component,
+  PropTypes
+} from 'react'
+import ReactNative, {
   Platform,
   ScrollView,
   View,
   ViewPagerAndroid
-} = ReactNative
+} from 'react-native'
 
 import Circles from './Circles'
 import FixedSizeView from './FixedSizeView'
