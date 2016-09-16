@@ -57,8 +57,6 @@ export default class SwipeALot extends Component {
         page
       })
 
-      this.onSetActivePage(page)
-
       if (Platform.OS === 'android') {
         this.swiper.setPage(page)
       }
