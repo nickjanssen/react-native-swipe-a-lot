@@ -105,6 +105,12 @@ export default class SwipeALot extends Component {
 
   swipeToPage(page) {
     this.emitter.emit('swipeToPage', { page })
+
+    this.onSetActivePage(page)
+    if (this.getAutoplaySettings().disableOnSwipe &&
+      this.autoplayPageCurrentlyBeingTransitionedTo !== page) {
+      this.stopAutoplay()
+    }
   }
 
   static get propTypes() {
@@ -140,15 +146,7 @@ export default class SwipeALot extends Component {
                 onMomentumScrollEnd={(e) => {
                   const { width } = this.store.getState()
                   const page = e.nativeEvent.contentOffset.x / width
-                  this.store.dispatch({
-                    type: 'SET_ACTIVE_PAGE',
-                    page: page
-                  })
-                  this.onSetActivePage(page)
-                  if (this.getAutoplaySettings().disableOnSwipe &&
-                    this.autoplayPageCurrentlyBeingTransitionedTo !== page) {
-                    this.stopAutoplay()
-                  }
+                  this.swipeToPage(page)
                 }}
                 onLayout={(event) => {
                   const {x, y, width, height} = event.nativeEvent.layout
@@ -171,15 +169,7 @@ export default class SwipeALot extends Component {
                 ref={(c) => this.swiper = c}
                 initialPage={0}
                 onPageSelected={(e) => {
-                  this.store.dispatch({
-                    type: 'SET_ACTIVE_PAGE',
-                    page: e.nativeEvent.position
-                  })
-                  this.onSetActivePage(e.nativeEvent.position)
-                  if (this.getAutoplaySettings().disableOnSwipe &&
-                    this.autoplayPageCurrentlyBeingTransitionedTo !== e) {
-                    this.stopAutoplay()
-                  }
+                  this.swipeToPage(e.nativeEvent.position)
                 }}
                 style={{
                   flex: 1
