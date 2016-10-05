@@ -143,6 +143,11 @@ export default class SwipeALot extends Component {
                 removeClippedSubviews={true}
                 showsHorizontalScrollIndicator={false}
                 showsVerticalScrollIndicator={false}
+                onMomentumScrollEnd={(e) => {
+                  const { width } = this.store.getState()
+                  const page = e.nativeEvent.contentOffset.x / width
+                  this.swipeToPage(page)
+                }}
                 onLayout={(event) => {
                   const {x, y, width, height} = event.nativeEvent.layout
                   this.store.dispatch({
@@ -163,6 +168,9 @@ export default class SwipeALot extends Component {
               <ViewPagerAndroid
                 ref={(c) => this.swiper = c}
                 initialPage={0}
+                onPageSelected={(e) => {
+                  this.swipeToPage(e.nativeEvent.position)
+                }}
                 style={{
                   flex: 1
                 }}>
