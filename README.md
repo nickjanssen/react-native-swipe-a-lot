@@ -36,7 +36,7 @@ I've found existing swiping components to be buggy and not working fully on both
 Install the npm package.
 
 ```
-npm i react-native-swipe-a-lot --save-dev
+npm i react-native-swipe-a-lot --save
 ```
 
 Import the SwipeALot component wherever you'd like to use it.
