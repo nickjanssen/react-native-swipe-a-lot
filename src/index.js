@@ -128,8 +128,20 @@ export default class SwipeALot extends Component {
   }
 
   render() {
+    const {
+      wrapperStyle,
+      circleWrapperStyle,
+      circleDefaultStyle,
+      circleActiveStyle,
+      children,
+      emitter,
+      autoplay,
+      onSetActivePage,
+      ...props,
+    } = this.props;
+
     return (
-      <View style={[this.props.wrapperStyle, {flex: 1}]} onLayout={() => {
+      <View style={[wrapperStyle, {flex: 1}]} onLayout={() => {
           const page = this.getPage()
           this.swipeToPage(page)
         }}>
@@ -157,8 +169,10 @@ export default class SwipeALot extends Component {
                     height
                   })
                 }}
-                automaticallyAdjustContentInsets={false}>
-                {React.Children.map(this.props.children, (c, i) => {
+                automaticallyAdjustContentInsets={false}
+                {...props}
+              >
+                {React.Children.map(children, (c, i) => {
                   return <FixedSizeView store={this.store} key={`view${i}`}>{c}</FixedSizeView>
                 })}
               </ScrollView>
@@ -175,7 +189,7 @@ export default class SwipeALot extends Component {
                 style={{
                   flex: 1
                 }}>
-                {React.Children.map(this.props.children, (c) => {
+                {React.Children.map(children, (c) => {
                   return <View>{c}</View>
                 })}
               </ViewPagerAndroid>
@@ -183,10 +197,10 @@ export default class SwipeALot extends Component {
           }
         })()}
         <Circles store={this.store} emitter={this.emitter}
-          circleWrapperStyle={this.props.circleWrapperStyle}
-          circleDefaultStyle={this.props.circleDefaultStyle}
-          circleActiveStyle={this.props.circleActiveStyle}>
-          {this.props.children}
+          circleWrapperStyle={circleWrapperStyle}
+          circleDefaultStyle={circleDefaultStyle}
+          circleActiveStyle={circleActiveStyle}>
+          {children}
         </Circles>
       </View>
     )
