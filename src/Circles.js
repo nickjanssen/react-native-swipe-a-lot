@@ -1,6 +1,11 @@
 
 import React, { Component } from 'react'
-import {　View,　PixelRatio,　TouchableWithoutFeedback　} from 'react-native'
+import {
+  PixelRatio,
+  TouchableWithoutFeedback,
+  View,
+  ViewPropTypes,
+} from 'react-native'
 import {PropTypes} from 'prop-types'
 
 const styles = {
@@ -30,9 +35,9 @@ class Circles extends Component {
     return {
       store: PropTypes.object,
       emitter: PropTypes.object,
-      circleWrapperStyle: PropTypes.object,
-      circleDefaultStyle: PropTypes.object,
-      circleActiveStyle: PropTypes.object,
+      circleWrapperStyle: ViewPropTypes.style,
+      circleDefaultStyle: ViewPropTypes.style,
+      circleActiveStyle: ViewPropTypes.style,
       children: PropTypes.any
     }
   }

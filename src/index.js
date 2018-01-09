@@ -5,7 +5,8 @@ import ReactNative, {
   Platform,
   ScrollView,
   View,
-  ViewPagerAndroid
+  ViewPagerAndroid,
+  ViewPropTypes,
 } from 'react-native'
 import {PropTypes} from 'prop-types'
 
@@ -116,9 +117,9 @@ export default class SwipeALot extends Component {
   static get propTypes() {
     return {
       wrapperStyle: PropTypes.object,
-      circleWrapperStyle: PropTypes.object,
-      circleDefaultStyle: PropTypes.object,
-      circleActiveStyle: PropTypes.object,
+      circleWrapperStyle: ViewPropTypes.style,
+      circleDefaultStyle: ViewPropTypes.style,
+      circleActiveStyle: ViewPropTypes.style,
       children: PropTypes.any,
       emitter: PropTypes.object,
       autoplay: PropTypes.object,
