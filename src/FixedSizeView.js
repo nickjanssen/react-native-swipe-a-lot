@@ -1,6 +1,7 @@
 
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { View } from 'react-native'
+import {PropTypes} from 'prop-types'
 
 class FixedSizeView extends Component {
   static get propTypes() {
@@ -24,11 +25,11 @@ class FixedSizeView extends Component {
   render() {
     const { width, height } = this.props.store.getState()
 
-    return (
+    return width ? (
       <View style={{width, height}}>
         {this.props.children}
       </View>
-    )
+    ) : null;
   }
 }
 
