@@ -25,11 +25,11 @@ class FixedSizeView extends Component {
   render() {
     const { width, height } = this.props.store.getState()
 
-    return (
+    return width ? (
       <View style={{width, height}}>
         {this.props.children}
       </View>
-    )
+    ) : null;
   }
 }
 
